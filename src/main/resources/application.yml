@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/projectdb
+    username: postgres
+    password: admin
+  swagger-ui:
+    path:"/docs/swagger.html"
+  liquibase:
+    change-log: db/changelog/main-changelog.xml
+server:
+  port: 8081

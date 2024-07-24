@@ -1,0 +1,4 @@
+id,vendor_code,type,name,price,description
+1,1001,guitar,x-101,1000,goodguitar
+2,1002,guitar,x-102,600,simple guitar
+3,1003,guitar,x-103,200,not so good guitar
