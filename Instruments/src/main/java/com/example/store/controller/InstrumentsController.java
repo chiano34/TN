@@ -29,6 +29,7 @@ public class InstrumentsController {
     public ResponseEntity<List<Instruments>> getAll(){
         return new ResponseEntity<>(instrumentsService.getAll(),HttpStatus.OK);
     }
+
     @GetMapping("/{id}")
     @Operation(summary = "получения инструмента по id", description = "Получение информации об инструменте по id")
     public ResponseEntity<Instruments> getById(@PathVariable("id") Long id) {
@@ -37,7 +38,22 @@ public class InstrumentsController {
         else
             return new ResponseEntity<>(instrumentsService.getById(id),HttpStatus.OK);
     }
-
+    @GetMapping("/higher/{price}")
+    @Operation(summary = "получения инструментов дороже чем число", description = "Получение информации об инструменте дороже указанной цены")
+    public ResponseEntity<List<Instruments>> getInstrumentsAbovePrice(@PathVariable("price") Long price) {
+        if(instrumentsService.getInstrumentsAbovePrice(price)==null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        else
+            return new ResponseEntity<>(instrumentsService.getInstrumentsAbovePrice(price),HttpStatus.OK);
+    }
+    @GetMapping(value="/lower/{price}")
+    @Operation(summary = "получения инструментов дешевле чем число", description = "Получение информации об инструментах дешевле указанной цены")
+    public ResponseEntity<List<Instruments>> findByPriceLessThen(@PathVariable("price") Long price) {
+        if(instrumentsService.getInstrumentsBelowPrice(price)==null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        else
+            return new ResponseEntity<>(instrumentsService.getInstrumentsBelowPrice(price),HttpStatus.OK);
+    }
     @PutMapping
     @Operation(summary = "Изменение инструмента", description = "Изменение существующего инструмента по id")
     public ResponseEntity<Instruments> update(@RequestBody Instruments instrument) {

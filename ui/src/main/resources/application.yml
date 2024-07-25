@@ -1,0 +1,8 @@
+server:
+  port: 8081
+feign:
+  okhttp:
+    enabled:true
+spring:
+  swagger-ui:
+    path:"/docs/swagger.html"

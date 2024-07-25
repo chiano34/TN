@@ -1,18 +1,15 @@
-package com.example.store;
+package org.example.ui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @SpringBootApplication
-@RestController
-public class StoreApplication {
+@EnableFeignClients
+public class UiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StoreApplication.class,args);
+		SpringApplication.run(UiApplication.class, args);
 	}
-
 }

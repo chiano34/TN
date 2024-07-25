@@ -25,13 +25,23 @@ public class InstrumentsService {
     public List<Instruments> getAll() {
         return instrumentsRepository.findAll();
     }
+
     public Instruments getById(Long id) {
         return instrumentsRepository.findById(id).orElse(null);
     }
+
     public Instruments update(Instruments instrument) {
         return instrumentsRepository.save(instrument);
     }
+
     public void delete(Long id) {
         instrumentsRepository.deleteById(id);
+    }
+
+    public List<Instruments> getInstrumentsAbovePrice(double price) {
+        return instrumentsRepository.findByPriceGreaterThan(price);
+    }
+    public List<Instruments> getInstrumentsBelowPrice(double price) {
+        return instrumentsRepository.findByPriceLessThan(price);
     }
 }

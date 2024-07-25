@@ -9,4 +9,4 @@ spring:
   liquibase:
     change-log: db/changelog/main-changelog.xml
 server:
-  port: 8081
+  port: 8082

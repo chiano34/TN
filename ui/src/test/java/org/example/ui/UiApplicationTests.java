@@ -1,10 +1,10 @@
-package com.example.finder;
+package org.example.ui;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FinderApplicationTests {
+class UiApplicationTests {
 
 	@Test
 	void contextLoads() {
